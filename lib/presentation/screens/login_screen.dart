@@ -1,4 +1,4 @@
-import 'package:vintage_vision/presentation/widgets/main_logo_widget.dart';
+import 'package:vintage_vision/presentation/widgets/main_logo_icon.dart';
 import 'package:vintage_vision/presentation/widgets/card_widget.dart';
 import 'package:vintage_vision/core/constants/app_colors.dart';
 import 'package:vintage_vision/routes/routes.dart';
@@ -17,7 +17,7 @@ class LoginScreen extends StatelessWidget {
           children: [
             SizedBox(height: 40),
             MainLogoWidget(),
-            SizedBox(height: 70),
+            SizedBox(height: 60),
             CardWidget(
               title: 'Bienvenido',
               text: 'Log in',

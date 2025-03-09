@@ -1,7 +1,8 @@
 import 'package:vintage_vision/presentation/widgets/button_dark_blue_widget.dart';
-import 'package:vintage_vision/presentation/widgets/movie_projector_widget.dart';
-import 'package:vintage_vision/presentation/widgets/main_logo_widget.dart';
+import 'package:vintage_vision/presentation/widgets/movie_projector_icon.dart';
+import 'package:vintage_vision/presentation/widgets/main_logo_icon.dart';
 import 'package:vintage_vision/core/constants/app_colors.dart';
+import 'package:vintage_vision/core/constants/app_size.dart';
 import 'package:vintage_vision/routes/routes.dart';
 import 'package:flutter/material.dart';
 
@@ -14,13 +15,12 @@ class WelcomeScreen extends StatelessWidget {
       backgroundColor: AppColors.vintageRed,
       body: Center(
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SizedBox(height: 40),
+            SizedBox(height: AppSize.height(context) * 0.047),
             MainLogoWidget(),
-            SizedBox(height: 40),
+            SizedBox(height: AppSize.height(context) * 0.05),
             MovieProjectorWidget(),
-            SizedBox(height: 60),
+            SizedBox(height: AppSize.height(context) * 0.073),
             ButtonDarkBlueWidget(
               text: 'Log in',
               onPressed: () {
