@@ -18,8 +18,8 @@ class ButtonDarkBlueWidget extends StatelessWidget {
       onPressed: onPressed,
       style: ButtonStyle(
         backgroundColor: WidgetStatePropertyAll(AppColors.vintageDarkBlue),
-        minimumSize: WidgetStatePropertyAll(Size(245, 62)),
-        maximumSize: WidgetStatePropertyAll(Size(245, 62)),
+        minimumSize: WidgetStatePropertyAll(Size(230, 62)),
+        maximumSize: WidgetStatePropertyAll(Size(230, 62)),
         shape: WidgetStatePropertyAll(
           RoundedRectangleBorder(borderRadius: BorderRadius.zero),
         ),
