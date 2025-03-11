@@ -25,7 +25,6 @@ class RegisterScreen extends StatelessWidget {
               SizedBox(height: AppSize.height(context) * 0.07),
               CardWidget(
                 title: 'Registro',
-                textButton: 'Registrarse',
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -70,7 +69,7 @@ class RegisterScreen extends StatelessWidget {
                     ButtonDarkBlueWidget(
                       text: 'Sing in',
                       onPressed: () {
-                        Navigator.pushNamed(context, AppRoutes.welcome);
+                        Navigator.pushNamed(context, AppRoutes.profiles);
                       },
                     ),
                   ],

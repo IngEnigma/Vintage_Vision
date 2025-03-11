@@ -5,15 +5,9 @@ import 'package:flutter/material.dart';
 
 class CardWidget extends StatelessWidget {
   final String title;
-  final String textButton;
   final Widget? child;
 
-  const CardWidget({
-    super.key,
-    required this.title,
-    required this.textButton,
-    required this.child,
-  });
+  const CardWidget({super.key, required this.title, required this.child});
 
   @override
   Widget build(BuildContext context) {

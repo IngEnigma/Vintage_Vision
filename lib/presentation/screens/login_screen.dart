@@ -25,7 +25,6 @@ class LoginScreen extends StatelessWidget {
               SizedBox(height: AppSize.height(context) * 0.07),
               CardWidget(
                 title: 'Bienvenido',
-                textButton: 'Log in',
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -58,7 +57,7 @@ class LoginScreen extends StatelessWidget {
                     ButtonDarkBlueWidget(
                       text: 'Log in',
                       onPressed: () {
-                        Navigator.pushNamed(context, AppRoutes.welcome);
+                        Navigator.pushNamed(context, AppRoutes.profiles);
                       },
                     ),
                   ],
