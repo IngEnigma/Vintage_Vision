@@ -16,11 +16,11 @@ class WelcomeScreen extends StatelessWidget {
       body: Center(
         child: Column(
           children: [
-            SizedBox(height: AppSize.height(context) * 0.047),
+            SizedBox(height: AppSize.height(context) * 0.02),
             MainLogoWidget(),
-            SizedBox(height: AppSize.height(context) * 0.05),
+            SizedBox(height: AppSize.height(context) * 0.06),
             MovieProjectorWidget(),
-            SizedBox(height: AppSize.height(context) * 0.073),
+            SizedBox(height: AppSize.height(context) * 0.08),
             ButtonDarkBlueWidget(
               text: 'Log in',
               onPressed: () {

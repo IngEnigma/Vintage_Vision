@@ -1,5 +1,6 @@
 import 'package:vintage_vision/presentation/widgets/custom_text_widget.dart';
 import 'package:vintage_vision/core/constants/app_colors.dart';
+import 'package:vintage_vision/core/constants/app_size.dart';
 import 'package:flutter/material.dart';
 
 class ButtonDarkBlueWidget extends StatelessWidget {
@@ -18,8 +19,8 @@ class ButtonDarkBlueWidget extends StatelessWidget {
       onPressed: onPressed,
       style: ButtonStyle(
         backgroundColor: WidgetStatePropertyAll(AppColors.vintageDarkBlue),
-        minimumSize: WidgetStatePropertyAll(Size(245, 62)),
-        maximumSize: WidgetStatePropertyAll(Size(245, 62)),
+        minimumSize: WidgetStatePropertyAll(Size(230, 62)),
+        maximumSize: WidgetStatePropertyAll(Size(230, 62)),
         shape: WidgetStatePropertyAll(
           RoundedRectangleBorder(borderRadius: BorderRadius.zero),
         ),

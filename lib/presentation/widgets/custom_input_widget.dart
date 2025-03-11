@@ -19,7 +19,7 @@ class CustomInputWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: MediaQuery.of(context).size.width * 0.82,
-      height: 50,
+      height: MediaQuery.of(context).size.height * 0.055,
       padding: EdgeInsets.all(5),
       decoration: BoxDecoration(
         color: AppColors.vintageCream,
@@ -28,14 +28,14 @@ class CustomInputWidget extends StatelessWidget {
       child: TextFormField(
         controller: controller,
         style: TextStyle(
-          fontSize: 25,
+          fontSize: 20,
           color: AppColors.vintageDarkBlue,
           fontFamily: 'LilyScriptOne',
         ),
         decoration: InputDecoration(
           hintText: hintText,
           hintStyle: TextStyle(
-            fontSize: 25,
+            fontSize: 20,
             color: AppColors.vintageDarkBlue,
             fontFamily: 'LilyScriptOne',
           ),
