@@ -5,20 +5,14 @@ import 'package:flutter/material.dart';
 
 class CardWidget extends StatelessWidget {
   final String title;
-  final String textButton;
   final Widget? child;
 
-  const CardWidget({
-    super.key,
-    required this.title,
-    required this.textButton,
-    required this.child,
-  });
+  const CardWidget({super.key, required this.title, required this.child});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: AppSize.height(context) * 0.57,
+      height: AppSize.height(context) * 0.60,
       width: AppSize.width(context) * 0.95,
       child: Card(
         shape: RoundedRectangleBorder(
