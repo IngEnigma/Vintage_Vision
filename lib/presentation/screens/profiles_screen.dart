@@ -54,7 +54,7 @@ class ProfilesScreen extends StatelessWidget {
                         ProfileCardWidget(
                           imageUrl: 'lib/assets/images/add_icon.png',
                           onTap: () {
-                            Navigator.pushNamed(context, AppRoutes.welcome);
+                            Navigator.pushNamed(context, AppRoutes.newperfil);
                           },
                         ),
                       ],
