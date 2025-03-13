@@ -34,21 +34,21 @@ class ProfilesScreen extends StatelessWidget {
                           profileName: 'Enigma',
                           imageUrl: 'lib/assets/images/user_icon.png',
                           onTap: () {
-                            Navigator.pushNamed(context, AppRoutes.welcome);
+                            Navigator.pushNamed(context, AppRoutes.principal);
                           },
                         ),
                         ProfileCardWidget(
                           profileName: 'Mariano',
                           imageUrl: 'lib/assets/images/user_icon.png',
                           onTap: () {
-                            Navigator.pushNamed(context, AppRoutes.welcome);
+                            Navigator.pushNamed(context, AppRoutes.principal);
                           },
                         ),
                         ProfileCardWidget(
                           profileName: 'Adsoft',
                           imageUrl: 'lib/assets/images/user_icon.png',
                           onTap: () {
-                            Navigator.pushNamed(context, AppRoutes.welcome);
+                            Navigator.pushNamed(context, AppRoutes.principal);
                           },
                         ),
                         ProfileCardWidget(
