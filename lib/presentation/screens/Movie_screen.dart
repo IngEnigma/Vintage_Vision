@@ -1,71 +1,113 @@
 import 'package:flutter/material.dart';
 import 'package:vintage_vision/core/constants/app_colors.dart';
+import 'package:vintage_vision/core/models/movie_model.dart';
+import 'package:vintage_vision/presentation/widgets/button_red_widget.dart';
+import 'package:vintage_vision/presentation/widgets/custom_app_bar.dart';
 
 class MovieDetailsScreen extends StatelessWidget {
-  final String title;
-  final String imageUrl;
-  final String description;
+  final Movie movie;
 
-  const MovieDetailsScreen({
-    super.key,
-    required this.title,
-    required this.imageUrl,
-    required this.description,
-  });
+  const MovieDetailsScreen({super.key, required this.movie});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.vintageDarkBlue,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-        title: Text(
-          title,
-          style: const TextStyle(
-            fontFamily: 'Limelight',
-            color: AppColors.vintageCream,
-          ),
-        ),
+      appBar: PreferredSize(
+        preferredSize: const Size(double.infinity, 50.0),
+        child: CustomAppBar(),
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Image.network(
-              imageUrl,
-              height: 400,
-              fit: BoxFit.cover,
-            ),
-            Padding(
+      body: CustomScrollView(
+        slivers: [
+          SliverToBoxAdapter(
+            child: Padding(
               padding: const EdgeInsets.all(16.0),
               child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text(
-                    title,
-                    style: const TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: AppColors.vintageCream,
-                      fontFamily: 'LilyScriptOne',
+                  // Póster centrado
+                  Center(
+                    child: ClipRRect(
+                      child: Image.network(
+                        movie.imageUrl,
+                        width: 320, 
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
-                  const SizedBox(height: 16),
+
+                  const SizedBox(height: 10.0),
+                  // Título de la película
                   Text(
-                    description,
+                    movie.title,
                     style: const TextStyle(
-                      fontSize: 16,
-                      color: Colors.white70,
-                      height: 1.5,
+                      fontFamily: 'Limelight',
+                      color: AppColors.vintageCream,
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.bold,
                     ),
+                  ),
+
+                  _buildInfoRow('Año', '${movie.year}'),
+                  _buildInfoRow('Género', movie.genre),
+                  // Descripción de la película
+                  Text(
+                    movie.description,
+                    style: const TextStyle(
+                      fontFamily: 'Limelight',
+                      color: Color.fromARGB(255, 255, 255, 255),
+                      fontSize: 14.0,
+                    ),
+                  ),
+
+                  const SizedBox(height: 30.0),
+                  // Botón de reproducción
+                  ButtonRedWidget(
+                    text: 'Reproducir',
+                    onPressed: () {  
+                      //Hola chucho
+                    },
+                  ),
+                  const SizedBox(height: 10.0),
+                  ButtonRedWidget(
+                    text: 'Ver con Amigos',
+                    onPressed: () {  
+                      //Hola chucho
+                    },
                   ),
                 ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
+
+  Widget _buildInfoRow(String label, String value) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Row( // Centra los textos
+        children: [
+          Text(
+            '$label: ',
+            style: const TextStyle(
+              color: AppColors.vintageCream,
+              fontFamily: 'Limelight',
+              fontSize: 16.0,
+            ),
+          ),
+          Text(
+            value,
+            style: const TextStyle(
+              color: AppColors.vintageCream,
+              fontSize: 16.0,
+              fontFamily: 'Limelight',
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
 }

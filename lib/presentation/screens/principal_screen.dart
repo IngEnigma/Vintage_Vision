@@ -1,32 +1,67 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:vintage_vision/core/constants/app_colors.dart';
+import 'package:vintage_vision/core/models/movie_model.dart';
 import 'package:vintage_vision/presentation/widgets/custom_app_bar.dart';
 import 'package:vintage_vision/presentation/widgets/list_pelicula.dart';
 import 'package:vintage_vision/presentation/widgets/slider_pelicula.dart';
 
 class PrincipalScreen extends StatelessWidget {
-  const PrincipalScreen({super.key});
+  PrincipalScreen({super.key});
 
-  static final List<String> movieCarousselUrl=[
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/The_Big_Show_Poster.jpg/500px-The_Big_Show_Poster.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ironmaskposter.jpg/500px-Ironmaskposter.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/The_Sin_of_Nora_Moran_FilmPoster.jpg/500px-The_Sin_of_Nora_Moran_FilmPoster.jpg"
+  final List<Movie> movies = [
+    Movie(
+      title: "The Big Show",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/The_Big_Show_Poster.jpg/500px-The_Big_Show_Poster.jpg",
+      year: 1934,
+      genre: "Western",
+      description: "Un sheriff investiga a una banda de criminales en su pueblo.",
+    ),
+    Movie(
+      title: "Iron Mask",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ironmaskposter.jpg/500px-Ironmaskposter.jpg",
+      year: 2019,
+      genre: "Aventura",
+      description: "Exploradores buscan un legendario tesoro en China.",
+    ),
+    Movie(
+      title: "The Sin of Nora Moran",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/The_Sin_of_Nora_Moran_FilmPoster.jpg/500px-The_Sin_of_Nora_Moran_FilmPoster.jpg",
+      year: 1933,
+      genre: "Drama",
+      description: "La trágica historia de una mujer condenada a muerte.",
+    ),
   ];
 
-  static final List<String> movieTitle=[
-    "The Big Show",
-    "Iron mask",
-    "The Sin of Nora Moran"
-  ];
-
-  static final List<String> movieImgURL=[
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5b/The_Star_Packer_FilmPoster.jpeg/500px-The_Star_Packer_FilmPoster.jpeg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Suddenly_%281954%29.jpg/500px-Suddenly_%281954%29.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ab/Poster_for_The_Screaming_Skull.jpg/500px-Poster_for_The_Screaming_Skull.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ironmaskposter.jpg/500px-Ironmaskposter.jpg",
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/SingSong6PantsOneSheet47.JPG/500px-SingSong6PantsOneSheet47.JPG",
-    "https://upload.wikimedia.org/wikipedia/commons/d/de/The-eagle-1925.jpg"
+  final List<Movie> comedyMovies = [
+    Movie(
+      title: "Sing Song 6 Pants",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/SingSong6PantsOneSheet47.JPG/500px-SingSong6PantsOneSheet47.JPG",
+      year: 1947,
+      genre: "Comedia",
+      description: "Un grupo de amigos se mete en problemas en una tintorería.",
+    ),
+    Movie(
+      title: "The Eagle",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/de/The-eagle-1925.jpg",
+      year: 1925,
+      genre: "Romance",
+      description: "Un oficial ruso se convierte en un forajido justiciero.",
+    ),
+    Movie(
+      title: "Santa Fe Trail",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Santa_Fe_Trail_De_Havilland_Flynn.jpg/500px-Santa_Fe_Trail_De_Havilland_Flynn.jpg",
+      year: 1920,
+      genre: "Romance",
+      description: "Santa Fe Trail is a 1940 American Western prelude to the Civil War.",
+    ),
+    Movie(
+      title: "The Eagle",
+      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/The_Vagabond_%281916%29.jpg/500px-The_Vagabond_%281916%29.jpg",
+      year: 1916,
+      genre: "Romance",
+      description: "The story begins with Charlie, the Tramp, arriving at a bar, playing on a violin to raise money and exciting rivalry with competing musicians - which results in a bar room brawl and comic mayhem.",
+    ),
   ];
 
   @override
@@ -35,7 +70,7 @@ class PrincipalScreen extends StatelessWidget {
       backgroundColor: AppColors.vintageDarkBlue,
       appBar: PreferredSize(
         preferredSize: const Size(double.infinity, 50.0),
-        child: CustomAppBar()
+        child: CustomAppBar(),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -44,18 +79,21 @@ class PrincipalScreen extends StatelessWidget {
             horizontal: 10.0,
           ),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // Título
               Text(
-                'Peliculas Recomendadas',
+                'Películas Recomendadas',
                 style: TextStyle(
                   fontFamily: 'Limelight',
                   color: AppColors.vintageCream,
                   fontSize: 20.0,
-                  fontWeight: FontWeight.w400
+                  fontWeight: FontWeight.w400,
                 ),
               ),
-              SizedBox(height: 12.0,),
-              //Carrusel
+              SizedBox(height: 12.0),
+
+              // Carrusel de películas
               CarouselSlider(
                 options: CarouselOptions(
                   enableInfiniteScroll: false,
@@ -64,12 +102,12 @@ class PrincipalScreen extends StatelessWidget {
                   height: 280.0,
                   enlargeCenterPage: true,
                 ),
-                items: [
-                  sliderPelicula(movieCarousselUrl[0],movieTitle[0]),
-                  sliderPelicula(movieCarousselUrl[1],movieTitle[1]),
-                  sliderPelicula(movieCarousselUrl[2],movieTitle[2])
-                ],
+                items: movies.map((movie) {
+                  return sliderPelicula(context, movie);
+                }).toList(),
               ),
+
+              SizedBox(height: 20.0),
               Text(
                 'Para ti:',
                 style: TextStyle(
@@ -79,21 +117,21 @@ class PrincipalScreen extends StatelessWidget {
                   fontFamily: 'Limelight',
                 ),
               ),
-              SizedBox(height: 5.0,),
-              Container(
+              SizedBox(height: 5.0),
+
+              // Lista horizontal de películas recomendadas
+              SizedBox(
                 height: 360.0,
-                width: double.infinity,
-                child: ListView(
+                child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  children: [
-                    //Lista Peliculas
-                    listPelicula(movieImgURL[0], "nameMovie"),
-                    listPelicula(movieImgURL[1], "nameMovie"),
-                    listPelicula(movieImgURL[2], "nameMovie"),
-                    listPelicula(movieImgURL[3], "nameMovie"),
-                  ],
+                  itemCount: movies.length,
+                  itemBuilder: (context, index) {
+                    return listPelicula(context, movies[index]);
+                  },
                 ),
               ),
+
+              SizedBox(height: 20.0),
               Text(
                 'Comedias:',
                 style: TextStyle(
@@ -103,24 +141,22 @@ class PrincipalScreen extends StatelessWidget {
                   fontFamily: 'Limelight',
                 ),
               ),
-              SizedBox(height: 5.0,),
-              Container(
+              SizedBox(height: 5.0),
+
+              // Lista horizontal de películas de comedia
+              SizedBox(
                 height: 360.0,
-                width: double.infinity,
-                child: ListView(
+                child: ListView.builder(
                   scrollDirection: Axis.horizontal,
-                  children: [
-                    //Lista Peliculas
-                    listPelicula(movieImgURL[4], "nameMovie"),
-                    listPelicula(movieImgURL[5], "nameMovie"),
-                    listPelicula(movieImgURL[3], "nameMovie"),
-                    listPelicula(movieImgURL[2], "nameMovie"),
-                  ],
+                  itemCount: comedyMovies.length,
+                  itemBuilder: (context, index) {
+                    return listPelicula(context, comedyMovies[index]);
+                  },
                 ),
               ),
             ],
-          ), 
-        ) ,
+          ),
+        ),
       ),
     );
   }
