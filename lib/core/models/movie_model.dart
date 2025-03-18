@@ -1,15 +1,17 @@
 class Movie {
+  final String id;
   final String title;
-  final String imageUrl;
-  final int year;
   final String genre;
-  final String description;
+  final int releaseYear;
+  final String url;
+  final String thumbnail;
 
   Movie({
+    required this.id,
     required this.title,
-    required this.imageUrl,
-    required this.year,
     required this.genre,
-    required this.description,
+    required this.releaseYear,
+    required this.url,
+    required this.thumbnail,
   });
 }
