@@ -11,22 +11,29 @@ class PrincipalScreen extends StatelessWidget {
 
   final List<Movie> movies = [
     Movie(
+      id: "1",
       title: "The Big Show",
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/The_Big_Show_Poster.jpg/500px-The_Big_Show_Poster.jpg",
+      thumbnail:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/The_Big_Show_Poster.jpg/500px-The_Big_Show_Poster.jpg",
       year: 1934,
       genre: "Western",
-      description: "Un sheriff investiga a una banda de criminales en su pueblo.",
+      description:
+          "Un sheriff investiga a una banda de criminales en su pueblo.",
     ),
     Movie(
+      id: "1",
       title: "Iron Mask",
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ironmaskposter.jpg/500px-Ironmaskposter.jpg",
+      thumbnail:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ironmaskposter.jpg/500px-Ironmaskposter.jpg",
       year: 2019,
       genre: "Aventura",
       description: "Exploradores buscan un legendario tesoro en China.",
     ),
     Movie(
+      id: "1",
       title: "The Sin of Nora Moran",
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/The_Sin_of_Nora_Moran_FilmPoster.jpg/500px-The_Sin_of_Nora_Moran_FilmPoster.jpg",
+      thumbnail:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/The_Sin_of_Nora_Moran_FilmPoster.jpg/500px-The_Sin_of_Nora_Moran_FilmPoster.jpg",
       year: 1933,
       genre: "Drama",
       description: "La trágica historia de una mujer condenada a muerte.",
@@ -35,32 +42,42 @@ class PrincipalScreen extends StatelessWidget {
 
   final List<Movie> comedyMovies = [
     Movie(
+      id: "1",
       title: "Sing Song 6 Pants",
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/SingSong6PantsOneSheet47.JPG/500px-SingSong6PantsOneSheet47.JPG",
+      thumbnail:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/SingSong6PantsOneSheet47.JPG/500px-SingSong6PantsOneSheet47.JPG",
       year: 1947,
       genre: "Comedia",
       description: "Un grupo de amigos se mete en problemas en una tintorería.",
     ),
     Movie(
+      id: "1",
       title: "The Eagle",
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/de/The-eagle-1925.jpg",
+      thumbnail:
+          "https://upload.wikimedia.org/wikipedia/commons/d/de/The-eagle-1925.jpg",
       year: 1925,
       genre: "Romance",
       description: "Un oficial ruso se convierte en un forajido justiciero.",
     ),
     Movie(
+      id: "1",
       title: "Santa Fe Trail",
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Santa_Fe_Trail_De_Havilland_Flynn.jpg/500px-Santa_Fe_Trail_De_Havilland_Flynn.jpg",
+      thumbnail:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Santa_Fe_Trail_De_Havilland_Flynn.jpg/500px-Santa_Fe_Trail_De_Havilland_Flynn.jpg",
       year: 1920,
       genre: "Romance",
-      description: "Santa Fe Trail is a 1940 American Western prelude to the Civil War.",
+      description:
+          "Santa Fe Trail is a 1940 American Western prelude to the Civil War.",
     ),
     Movie(
+      id: "1",
       title: "The Eagle",
-      imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/The_Vagabond_%281916%29.jpg/500px-The_Vagabond_%281916%29.jpg",
+      thumbnail:
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/The_Vagabond_%281916%29.jpg/500px-The_Vagabond_%281916%29.jpg",
       year: 1916,
       genre: "Romance",
-      description: "The story begins with Charlie, the Tramp, arriving at a bar, playing on a violin to raise money and exciting rivalry with competing musicians - which results in a bar room brawl and comic mayhem.",
+      description:
+          "The story begins with Charlie, the Tramp, arriving at a bar, playing on a violin to raise money and exciting rivalry with competing musicians - which results in a bar room brawl and comic mayhem.",
     ),
   ];
 
@@ -74,10 +91,7 @@ class PrincipalScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(
-            vertical: 12.0,
-            horizontal: 10.0,
-          ),
+          padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 10.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -102,9 +116,10 @@ class PrincipalScreen extends StatelessWidget {
                   height: 280.0,
                   enlargeCenterPage: true,
                 ),
-                items: movies.map((movie) {
-                  return sliderPelicula(context, movie);
-                }).toList(),
+                items:
+                    movies.map((movie) {
+                      return sliderPelicula(context, movie);
+                    }).toList(),
               ),
 
               SizedBox(height: 20.0),
