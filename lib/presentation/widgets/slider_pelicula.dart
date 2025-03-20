@@ -13,7 +13,6 @@ Widget sliderPelicula(BuildContext context, Movie movie) {
         ),
       );
     },
-    child: Container(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,6 +39,5 @@ Widget sliderPelicula(BuildContext context, Movie movie) {
           ),
         ],
       ),
-    ),
   );
 }

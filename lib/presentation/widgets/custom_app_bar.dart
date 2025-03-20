@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:vintage_vision/core/constants/app_colors.dart';
 
 class CustomAppBar extends StatelessWidget {
+
+  const CustomAppBar({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,20 +20,24 @@ class CustomAppBar extends StatelessWidget {
               child: Image.asset('lib/assets/images/logo.png', fit: BoxFit.contain),
             ),
             const SizedBox(width: 6.0),
+             const SizedBox(width: 6.0),
+            // Botón del menú
             Expanded(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  IconButton(
-                    onPressed: () {},
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: Builder( // Widget Builder esencial aquí
+                  builder: (context) => IconButton(
                     icon: Icon(
                       Icons.menu,
                       color: AppColors.vintageRed,
-                      size: 32,            
+                      size: 32,
                     ),
-                    constraints: const BoxConstraints(),
+                    onPressed: () {
+                      debugPrint('Intentando abrir menú ayuda');
+                      Scaffold.of(context).openEndDrawer(); // Método correcto
+                    },
                   ),
-                ],
+                ),
               ),
             ),
           ],

@@ -3,6 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:vintage_vision/core/constants/app_colors.dart';
 import 'package:vintage_vision/core/models/movie_model.dart';
 import 'package:vintage_vision/presentation/widgets/custom_app_bar.dart';
+import 'package:vintage_vision/presentation/widgets/custom_drawer.dart';
 import 'package:vintage_vision/presentation/widgets/list_pelicula.dart';
 import 'package:vintage_vision/presentation/widgets/slider_pelicula.dart';
 
@@ -27,7 +28,7 @@ class PrincipalScreen extends StatelessWidget {
           "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ironmaskposter.jpg/500px-Ironmaskposter.jpg",
       year: 2019,
       genre: "Aventura",
-      description: "Exploradores buscan un legendario tesoro en China.",
+      thumbnail: "Exploradores buscan un legendario tesoro en China.",
     ),
     Movie(
       id: "1",
@@ -36,7 +37,7 @@ class PrincipalScreen extends StatelessWidget {
           "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/The_Sin_of_Nora_Moran_FilmPoster.jpg/500px-The_Sin_of_Nora_Moran_FilmPoster.jpg",
       year: 1933,
       genre: "Drama",
-      description: "La trágica historia de una mujer condenada a muerte.",
+      thumbnail: "La trágica historia de una mujer condenada a muerte.",
     ),
   ];
 
@@ -48,7 +49,7 @@ class PrincipalScreen extends StatelessWidget {
           "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/SingSong6PantsOneSheet47.JPG/500px-SingSong6PantsOneSheet47.JPG",
       year: 1947,
       genre: "Comedia",
-      description: "Un grupo de amigos se mete en problemas en una tintorería.",
+      thumbnail: "Un grupo de amigos se mete en problemas en una tintorería.",
     ),
     Movie(
       id: "1",
@@ -57,7 +58,7 @@ class PrincipalScreen extends StatelessWidget {
           "https://upload.wikimedia.org/wikipedia/commons/d/de/The-eagle-1925.jpg",
       year: 1925,
       genre: "Romance",
-      description: "Un oficial ruso se convierte en un forajido justiciero.",
+      thumbnail: "Un oficial ruso se convierte en un forajido justiciero.",
     ),
     Movie(
       id: "1",
@@ -89,6 +90,7 @@ class PrincipalScreen extends StatelessWidget {
         preferredSize: const Size(double.infinity, 50.0),
         child: CustomAppBar(),
       ),
+      endDrawer: CustomDrawer(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 12.0, horizontal: 10.0),

@@ -3,6 +3,7 @@ import 'package:vintage_vision/core/constants/app_colors.dart';
 import 'package:vintage_vision/core/models/movie_model.dart';
 import 'package:vintage_vision/presentation/widgets/button_red_widget.dart';
 import 'package:vintage_vision/presentation/widgets/custom_app_bar.dart';
+import 'package:vintage_vision/presentation/widgets/custom_drawer.dart';
 
 class MovieDetailsScreen extends StatelessWidget {
   final Movie movie;
@@ -17,6 +18,7 @@ class MovieDetailsScreen extends StatelessWidget {
         preferredSize: const Size(double.infinity, 50.0),
         child: CustomAppBar(),
       ),
+      endDrawer: CustomDrawer(),
       body: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
@@ -48,11 +50,11 @@ class MovieDetailsScreen extends StatelessWidget {
                     ),
                   ),
 
-                  _buildInfoRow('Año', '${movie.year}'),
+                  _buildInfoRow('Año', '${movie.releaseYear}'),
                   _buildInfoRow('Género', movie.genre),
                   // Descripción de la película
                   Text(
-                    movie.description,
+                    movie.thumbnail,
                     style: const TextStyle(
                       fontFamily: 'Limelight',
                       color: Color.fromARGB(255, 255, 255, 255),

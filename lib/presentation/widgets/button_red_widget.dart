@@ -31,7 +31,7 @@ class ButtonRedWidget extends StatelessWidget {
       ),
       child: CustomTextWidget(
         text: text,
-        fontSize: 16.0,
+        fontSize: 20.0,
       ),
     );
   }
