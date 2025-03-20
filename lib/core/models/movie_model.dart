@@ -3,7 +3,7 @@ class Movie {
   final String title;
   final String genre;
   final int releaseYear;
-  final String url;
+  final String imageUrl;
   final String thumbnail;
 
   Movie({
@@ -11,7 +11,7 @@ class Movie {
     required this.title,
     required this.genre,
     required this.releaseYear,
-    required this.url,
+    required this.imageUrl,
     required this.thumbnail,
   });
 }

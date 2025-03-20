@@ -12,56 +12,63 @@ class PrincipalScreen extends StatelessWidget {
 
   final List<Movie> movies = [
     Movie(
+      id: "1",
       title: "The Big Show",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/The_Big_Show_Poster.jpg/500px-The_Big_Show_Poster.jpg",
-      year: 1934,
+      releaseYear: 1934,
       genre: "Western",
-      description: "Un sheriff investiga a una banda de criminales en su pueblo.",
+      thumbnail: "Un sheriff investiga a una banda de criminales en su pueblo.",
     ),
     Movie(
+      id: "2",
       title: "Iron Mask",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ironmaskposter.jpg/500px-Ironmaskposter.jpg",
-      year: 2019,
+      releaseYear: 2019,
       genre: "Aventura",
-      description: "Exploradores buscan un legendario tesoro en China.",
+      thumbnail: "Exploradores buscan un legendario tesoro en China.",
     ),
     Movie(
+      id: "3",
       title: "The Sin of Nora Moran",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/The_Sin_of_Nora_Moran_FilmPoster.jpg/500px-The_Sin_of_Nora_Moran_FilmPoster.jpg",
-      year: 1933,
+      releaseYear: 1933,
       genre: "Drama",
-      description: "La trágica historia de una mujer condenada a muerte.",
+      thumbnail: "La trágica historia de una mujer condenada a muerte.",
     ),
   ];
 
   final List<Movie> comedyMovies = [
     Movie(
+      id: "1",
       title: "Sing Song 6 Pants",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/SingSong6PantsOneSheet47.JPG/500px-SingSong6PantsOneSheet47.JPG",
-      year: 1947,
+      releaseYear: 1947,
       genre: "Comedia",
-      description: "Un grupo de amigos se mete en problemas en una tintorería.",
+      thumbnail: "Un grupo de amigos se mete en problemas en una tintorería.",
     ),
     Movie(
+      id: "2",
       title: "The Eagle",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/d/de/The-eagle-1925.jpg",
-      year: 1925,
+      releaseYear: 1925,
       genre: "Romance",
-      description: "Un oficial ruso se convierte en un forajido justiciero.",
+      thumbnail: "Un oficial ruso se convierte en un forajido justiciero.",
     ),
     Movie(
+      id: "3",
       title: "Santa Fe Trail",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/30/Santa_Fe_Trail_De_Havilland_Flynn.jpg/500px-Santa_Fe_Trail_De_Havilland_Flynn.jpg",
-      year: 1920,
+      releaseYear: 1920,
       genre: "Romance",
-      description: "Santa Fe Trail is a 1940 American Western prelude to the Civil War.",
+      thumbnail: "Santa Fe Trail is a 1940 American Western prelude to the Civil War.",
     ),
     Movie(
+      id: "4",
       title: "The Eagle",
       imageUrl: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/The_Vagabond_%281916%29.jpg/500px-The_Vagabond_%281916%29.jpg",
-      year: 1916,
+      releaseYear: 1916,
       genre: "Romance",
-      description: "The story begins with Charlie, the Tramp, arriving at a bar, playing on a violin to raise money and exciting rivalry with competing musicians - which results in a bar room brawl and comic mayhem.",
+      thumbnail: "The story begins with Charlie, the Tramp, arriving at a bar, playing on a violin to raise money and exciting rivalry with competing musicians - which results in a bar room brawl and comic mayhem.",
     ),
   ];
 

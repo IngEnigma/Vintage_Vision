@@ -50,11 +50,11 @@ class MovieDetailsScreen extends StatelessWidget {
                     ),
                   ),
 
-                  _buildInfoRow('Año', '${movie.year}'),
+                  _buildInfoRow('Año', '${movie.releaseYear}'),
                   _buildInfoRow('Género', movie.genre),
                   // Descripción de la película
                   Text(
-                    movie.description,
+                    movie.thumbnail,
                     style: const TextStyle(
                       fontFamily: 'Limelight',
                       color: Color.fromARGB(255, 255, 255, 255),

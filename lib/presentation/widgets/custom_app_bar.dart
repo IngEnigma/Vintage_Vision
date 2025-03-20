@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:vintage_vision/core/constants/app_colors.dart';
 
 class CustomAppBar extends StatelessWidget {
+
+  const CustomAppBar({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,7 +33,7 @@ class CustomAppBar extends StatelessWidget {
                       size: 32,
                     ),
                     onPressed: () {
-                      print('Intentando abrir menú ayuda');
+                      debugPrint('Intentando abrir menú ayuda');
                       Scaffold.of(context).openEndDrawer(); // Método correcto
                     },
                   ),

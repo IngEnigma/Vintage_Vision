@@ -5,7 +5,7 @@ import 'package:vintage_vision/routes/routes.dart';
 import 'package:vintage_vision/presentation/widgets/profile_card_widget.dart';
 
 class CustomDrawer extends StatelessWidget {
-  const CustomDrawer({Key? key}) : super(key: key); // Añadido el parámetro key
+  const CustomDrawer({super.key}); //Añadido el parámetro key
 
   @override
   Widget build(BuildContext context) {
