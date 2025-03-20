@@ -56,7 +56,7 @@ class CustomDrawer extends StatelessWidget {
     final buttons = [
       _buildButton(
         'Editar Perfil',
-        () => Navigator.pop(context),
+        () => Navigator.pushNamed(context, AppRoutes.editperfil),
       ),
       _buildButton(
         'Cambiar Perfil',
