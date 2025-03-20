@@ -3,6 +3,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:vintage_vision/core/constants/app_colors.dart';
 import 'package:vintage_vision/core/models/movie_model.dart';
 import 'package:vintage_vision/presentation/widgets/custom_app_bar.dart';
+import 'package:vintage_vision/presentation/widgets/custom_drawer.dart';
 import 'package:vintage_vision/presentation/widgets/list_pelicula.dart';
 import 'package:vintage_vision/presentation/widgets/slider_pelicula.dart';
 
@@ -72,6 +73,7 @@ class PrincipalScreen extends StatelessWidget {
         preferredSize: const Size(double.infinity, 50.0),
         child: CustomAppBar(),
       ),
+      endDrawer: CustomDrawer(),
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(

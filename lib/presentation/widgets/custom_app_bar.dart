@@ -17,20 +17,24 @@ class CustomAppBar extends StatelessWidget {
               child: Image.asset('lib/assets/images/logo.png', fit: BoxFit.contain),
             ),
             const SizedBox(width: 6.0),
+             const SizedBox(width: 6.0),
+            // Botón del menú
             Expanded(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  IconButton(
-                    onPressed: () {},
+              child: Align(
+                alignment: Alignment.centerRight,
+                child: Builder( // Widget Builder esencial aquí
+                  builder: (context) => IconButton(
                     icon: Icon(
                       Icons.menu,
                       color: AppColors.vintageRed,
-                      size: 32,            
+                      size: 32,
                     ),
-                    constraints: const BoxConstraints(),
+                    onPressed: () {
+                      print('Intentando abrir menú ayuda');
+                      Scaffold.of(context).openEndDrawer(); // Método correcto
+                    },
                   ),
-                ],
+                ),
               ),
             ),
           ],
