@@ -31,8 +31,8 @@ class MovieDetailsScreen extends StatelessWidget {
                   Center(
                     child: ClipRRect(
                       child: Image.network(
-                        movie.imageUrl,
-                        width: 320, 
+                        movie.thumbnail,
+                        width: 320,
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -66,14 +66,14 @@ class MovieDetailsScreen extends StatelessWidget {
                   // Botón de reproducción
                   ButtonRedWidget(
                     text: 'Reproducir',
-                    onPressed: () {  
+                    onPressed: () {
                       //Hola chucho
                     },
                   ),
                   const SizedBox(height: 10.0),
                   ButtonRedWidget(
                     text: 'Ver con Amigos',
-                    onPressed: () {  
+                    onPressed: () {
                       //Hola chucho
                     },
                   ),
@@ -89,7 +89,8 @@ class MovieDetailsScreen extends StatelessWidget {
   Widget _buildInfoRow(String label, String value) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Row( // Centra los textos
+      child: Row(
+        // Centra los textos
         children: [
           Text(
             '$label: ',
@@ -111,5 +112,4 @@ class MovieDetailsScreen extends StatelessWidget {
       ),
     );
   }
-
 }

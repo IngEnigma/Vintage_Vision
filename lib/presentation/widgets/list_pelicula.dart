@@ -26,7 +26,7 @@ Widget listPelicula(BuildContext context, Movie movie) {
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5.0),
               image: DecorationImage(
-                image: NetworkImage(movie.imageUrl),
+                image: NetworkImage(movie.thumbnail),
                 fit: BoxFit.cover,
               ),
             ),
