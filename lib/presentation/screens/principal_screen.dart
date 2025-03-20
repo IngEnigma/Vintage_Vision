@@ -28,7 +28,7 @@ class PrincipalScreen extends StatelessWidget {
           "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ironmaskposter.jpg/500px-Ironmaskposter.jpg",
       year: 2019,
       genre: "Aventura",
-      thumbnail: "Exploradores buscan un legendario tesoro en China.",
+      description: "Exploradores buscan un legendario tesoro en China.",
     ),
     Movie(
       id: "1",
@@ -37,7 +37,7 @@ class PrincipalScreen extends StatelessWidget {
           "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/The_Sin_of_Nora_Moran_FilmPoster.jpg/500px-The_Sin_of_Nora_Moran_FilmPoster.jpg",
       year: 1933,
       genre: "Drama",
-      thumbnail: "La trágica historia de una mujer condenada a muerte.",
+      description: "La trágica historia de una mujer condenada a muerte.",
     ),
   ];
 
@@ -49,7 +49,7 @@ class PrincipalScreen extends StatelessWidget {
           "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/SingSong6PantsOneSheet47.JPG/500px-SingSong6PantsOneSheet47.JPG",
       year: 1947,
       genre: "Comedia",
-      thumbnail: "Un grupo de amigos se mete en problemas en una tintorería.",
+      description: "Un grupo de amigos se mete en problemas en una tintorería.",
     ),
     Movie(
       id: "1",
@@ -58,7 +58,7 @@ class PrincipalScreen extends StatelessWidget {
           "https://upload.wikimedia.org/wikipedia/commons/d/de/The-eagle-1925.jpg",
       year: 1925,
       genre: "Romance",
-      thumbnail: "Un oficial ruso se convierte en un forajido justiciero.",
+      description: "Un oficial ruso se convierte en un forajido justiciero.",
     ),
     Movie(
       id: "1",

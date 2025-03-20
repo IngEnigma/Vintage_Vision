@@ -50,7 +50,7 @@ class MovieDetailsScreen extends StatelessWidget {
                     ),
                   ),
 
-                  _buildInfoRow('Año', '${movie.releaseYear}'),
+                  _buildInfoRow('Año', '${movie.year}'),
                   _buildInfoRow('Género', movie.genre),
                   // Descripción de la película
                   Text(
