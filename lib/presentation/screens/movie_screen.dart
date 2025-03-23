@@ -62,9 +62,28 @@ class MovieDetailsScreen extends StatelessWidget {
                     ),
                   ),
 
-                  const SizedBox(height: 30.0),
+                  const SizedBox(height: 40.0),
                   // Botón de reproducción
-                  ButtonRedWidget(
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      ButtonRedWidget(
+                        text: 'Reproducir',
+                        onPressed: () {  
+                          //Hola chucho
+                        },
+                      ),
+                      ButtonRedWidget(
+                        text: 'Ver con Amigos',
+                        onPressed: () {  
+                          //Hola chucho
+                        },
+                      ),
+                    ]
+                  ),
+
+                  /*ButtonRedWidget(
                     text: 'Reproducir',
                     onPressed: () {  
                       //Hola chucho
@@ -76,7 +95,7 @@ class MovieDetailsScreen extends StatelessWidget {
                     onPressed: () {  
                       //Hola chucho
                     },
-                  ),
+                  ),*/
                 ],
               ),
             ),

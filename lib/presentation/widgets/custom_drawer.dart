@@ -60,7 +60,7 @@ class CustomDrawer extends StatelessWidget {
       ),
       _buildButton(
         'Cambiar Perfil',
-        () => Navigator.pop(context),
+        () => Navigator.pop(context, AppRoutes.profiles),
       ),
       _buildButton(
         'Añadir película',
@@ -68,12 +68,12 @@ class CustomDrawer extends StatelessWidget {
       ),
       _buildButton(
         'Cerrar Sesión',
-        () => Navigator.pop(context),
+        () => Navigator.pop(context, AppRoutes.welcome),
       ),
     ];
 
     return buttons.expand((button) => [button, const SizedBox(height: 50)]).toList()
-      ..removeLast(); // Eliminar el último SizedBox adicional
+      ..removeLast();
   }
 
   Widget _buildButton(String title, VoidCallback onTap) {
