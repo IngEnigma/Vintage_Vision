@@ -5,6 +5,8 @@ import 'package:vintage_vision/presentation/widgets/button_red_widget.dart';
 import 'package:vintage_vision/presentation/widgets/custom_app_bar.dart';
 import 'package:vintage_vision/presentation/widgets/custom_drawer.dart';
 
+import 'package:vintage_vision/presentation/screens/movieplayer_screen.dart';
+
 class MovieDetailsScreen extends StatelessWidget {
   final Movie movie;
 
@@ -71,7 +73,12 @@ class MovieDetailsScreen extends StatelessWidget {
                       ButtonRedWidget(
                         text: 'Reproducir',
                         onPressed: () {  
-                          //Hola chucho
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => MoviePlayerScreen(movie: movie),
+                            ),
+                          );
                         },
                       ),
                       ButtonRedWidget(

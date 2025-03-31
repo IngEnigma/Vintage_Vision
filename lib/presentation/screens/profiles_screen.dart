@@ -25,9 +25,9 @@ class ProfilesScreen extends StatelessWidget {
                 title: 'Perfiles',
                 child: Column(
                   children: [
-                    SizedBox(height: AppSize.height(context) * 0.02),
+                    //SizedBox(height: AppSize.height(context) * 0.02),
                     Wrap(
-                      spacing: 40,
+                      spacing: 30,
                       runSpacing: 35,
                       children: [
                         ProfileCardWidget(

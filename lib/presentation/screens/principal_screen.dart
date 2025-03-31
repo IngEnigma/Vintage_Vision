@@ -18,6 +18,7 @@ class PrincipalScreen extends StatelessWidget {
           "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/The_Big_Show_Poster.jpg/500px-The_Big_Show_Poster.jpg",
       year: 1934,
       genre: "Western",
+      url: "lib/assets/video/2073224.mp4",
       description:
           "Un sheriff investiga a una banda de criminales en su pueblo.",
     ),
@@ -27,6 +28,7 @@ class PrincipalScreen extends StatelessWidget {
       thumbnail:
           "https://upload.wikimedia.org/wikipedia/commons/thumb/6/62/Ironmaskposter.jpg/500px-Ironmaskposter.jpg",
       year: 2019,
+      url: "lib/assets/video/7864918.mp4",
       genre: "Aventura",
       description: "Exploradores buscan un legendario tesoro en China.",
     ),
@@ -36,6 +38,7 @@ class PrincipalScreen extends StatelessWidget {
       thumbnail:
           "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/The_Sin_of_Nora_Moran_FilmPoster.jpg/500px-The_Sin_of_Nora_Moran_FilmPoster.jpg",
       year: 1933,
+      url: "lib/assets/video/13203001.mp4",
       genre: "Drama",
       description: "La trágica historia de una mujer condenada a muerte.",
     ),
@@ -107,7 +110,6 @@ class PrincipalScreen extends StatelessWidget {
                   fontWeight: FontWeight.w400,
                 ),
               ),
-              SizedBox(height: 12.0),
 
               // Carrusel de películas
               CarouselSlider(
@@ -115,7 +117,7 @@ class PrincipalScreen extends StatelessWidget {
                   enableInfiniteScroll: false,
                   aspectRatio: 16 / 9,
                   viewportFraction: 0.9,
-                  height: 280.0,
+                  height: 275.0,
                   enlargeCenterPage: true,
                 ),
                 items:
@@ -123,8 +125,8 @@ class PrincipalScreen extends StatelessWidget {
                       return sliderPelicula(context, movie);
                     }).toList(),
               ),
-
-              SizedBox(height: 20.0),
+              SizedBox(height: 10.0),
+              
               Text(
                 'Para ti:',
                 style: TextStyle(
@@ -138,7 +140,7 @@ class PrincipalScreen extends StatelessWidget {
 
               // Lista horizontal de películas recomendadas
               SizedBox(
-                height: 360.0,
+                height: 330.0,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: movies.length,
@@ -148,7 +150,6 @@ class PrincipalScreen extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(height: 20.0),
               Text(
                 'Comedias:',
                 style: TextStyle(
@@ -162,7 +163,7 @@ class PrincipalScreen extends StatelessWidget {
 
               // Lista horizontal de películas de comedia
               SizedBox(
-                height: 360.0,
+                height: 330.0,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: comedyMovies.length,

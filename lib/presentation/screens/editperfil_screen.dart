@@ -14,12 +14,12 @@ class EditperfilScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: AppColors.vintageDarkBlue,
         toolbarHeight: 100,
-        titleSpacing: 40,
+        titleSpacing: 32,
         title: const Text(
           'Editar Perfil',
           style: TextStyle(
             color: AppColors.vintageCream,
-            fontSize: 38,
+            fontSize: 32,
             fontWeight: FontWeight.bold,
             fontFamily: 'Limelight',
           ),
