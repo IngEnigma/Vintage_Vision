@@ -31,21 +31,7 @@ class ProfilesScreen extends StatelessWidget {
                       runSpacing: 35,
                       children: [
                         ProfileCardWidget(
-                          profileName: 'Enigma',
-                          imageUrl: 'lib/assets/images/user_icon.png',
-                          onTap: () {
-                            Navigator.pushNamed(context, AppRoutes.principal);
-                          },
-                        ),
-                        ProfileCardWidget(
-                          profileName: 'Mariano',
-                          imageUrl: 'lib/assets/images/user_icon.png',
-                          onTap: () {
-                            Navigator.pushNamed(context, AppRoutes.principal);
-                          },
-                        ),
-                        ProfileCardWidget(
-                          profileName: 'Adsoft',
+                          profileName: 'user',
                           imageUrl: 'lib/assets/images/user_icon.png',
                           onTap: () {
                             Navigator.pushNamed(context, AppRoutes.principal);
