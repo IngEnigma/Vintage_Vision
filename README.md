@@ -1,16 +1,9 @@
-# vintage_vision
+# VINTAGE VISION
 
-A new Flutter project.
+Proyecto de una aplicacion para moviles de contenido de peliculas antiguas en streaming
+Mockups: https://www.figma.com/design/V8CKCo9tnKq74HrXU9xMvs/Vintage-Visions?node-id=0-1&t=Se5lB5318tcMjZ3p-1
+Presentacion: https://www.canva.com/design/DAGftEN0ti4/SR44SFIMNtKO_PRA2Xli2g/edit?utm_content=DAGftEN0ti4&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### CREDITOS
+- IngEnigma
+- Mariano
