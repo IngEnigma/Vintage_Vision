@@ -7,12 +7,14 @@ import 'package:vintage_vision/presentation/widgets/text_button_widget.dart';
 import 'package:vintage_vision/presentation/widgets/main_logo_icon.dart';
 import 'package:vintage_vision/presentation/widgets/card_widget.dart';
 import 'package:vintage_vision/routes/routes.dart';
+
 import 'package:vintage_vision/core/services/auth_services.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _RegisterScreenState createState() => _RegisterScreenState();
 }
 
@@ -34,12 +36,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
     final newUser = await _authService.createUser(
       _emailController.text,
-      _usernameController.text,
-      false,
+      _passwordController.text,
     );
 
-    if (!mounted) return;
-    Navigator.pushNamed(context, AppRoutes.profiles);
+    if (newUser != null) {
+      if (!mounted) return;
+      Navigator.pushNamed(context, AppRoutes.profiles);
+    } else {
+      ScaffoldMessenger.of(
+        // ignore: use_build_context_synchronously
+        context,
+      ).showSnackBar(SnackBar(content: Text('Error al registrarse')));
+    }
   }
 
   @override

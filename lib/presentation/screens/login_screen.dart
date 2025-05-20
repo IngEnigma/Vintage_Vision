@@ -7,12 +7,14 @@ import 'package:vintage_vision/presentation/widgets/text_button_widget.dart';
 import 'package:vintage_vision/presentation/widgets/main_logo_icon.dart';
 import 'package:vintage_vision/presentation/widgets/card_widget.dart';
 import 'package:vintage_vision/routes/routes.dart';
+
 import 'package:vintage_vision/core/services/auth_services.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _LoginScreenState createState() => _LoginScreenState();
 }
 
