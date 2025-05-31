@@ -7,6 +7,7 @@ import 'package:vintage_vision/presentation/widgets/text_button_widget.dart';
 import 'package:vintage_vision/presentation/widgets/main_logo_icon.dart';
 import 'package:vintage_vision/presentation/widgets/card_widget.dart';
 import 'package:vintage_vision/routes/routes.dart';
+import 'package:vintage_vision/presentation/widgets/password_input_widget.dart';
 
 import 'package:vintage_vision/core/services/auth_services.dart';
 
@@ -62,9 +63,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       hintText: 'Email',
                     ),
                     SizedBox(height: AppSize.height(context) * 0.02),
-                    CustomInputWidget(
+                    PasswordInputWidget(
                       controller: _passwordController,
-                      obscureText: true,
                       hintText: 'Password',
                     ),
                     SizedBox(height: AppSize.height(context) * 0.04),

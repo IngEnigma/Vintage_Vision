@@ -20,4 +20,11 @@ class Profile {
       viewingHistory: List<String>.from(json['viewing_history'] ?? []),
     );
   }
+
+  Map<String, dynamic> toJson() => {
+    'id': id,
+    'name': name,
+    'avatar_url': avatarUrl,
+    'viewing_history': viewingHistory,
+  };
 }

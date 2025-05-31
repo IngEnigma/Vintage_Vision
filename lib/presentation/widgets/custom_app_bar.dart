@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:vintage_vision/core/constants/app_colors.dart';
 
 class CustomAppBar extends StatelessWidget {
-
-  const CustomAppBar({super.key});
+  final String profileName;
+  const CustomAppBar({super.key, required this.profileName});
 
   @override
   Widget build(BuildContext context) {

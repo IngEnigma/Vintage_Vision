@@ -2,13 +2,36 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:vintage_vision/core/constants/app_colors.dart';
 import 'package:vintage_vision/core/models/movie_model.dart';
+import 'package:vintage_vision/core/models/profile_model.dart';
+import 'package:vintage_vision/core/services/auth_services.dart';
 import 'package:vintage_vision/presentation/widgets/custom_app_bar.dart';
 import 'package:vintage_vision/presentation/widgets/custom_drawer.dart';
 import 'package:vintage_vision/presentation/widgets/list_pelicula.dart';
 import 'package:vintage_vision/presentation/widgets/slider_pelicula.dart';
 
-class PrincipalScreen extends StatelessWidget {
-  PrincipalScreen({super.key});
+class PrincipalScreen extends StatefulWidget {
+  const PrincipalScreen({super.key});
+
+  @override
+  State<PrincipalScreen> createState() => _PrincipalScreenState();
+}
+
+class _PrincipalScreenState extends State<PrincipalScreen> {
+  Profile? _currentProfile;
+  final AuthService _authService = AuthService();
+
+  @override
+  void initState() {
+    super.initState();
+    _loadCurrentProfile();
+  }
+
+  Future<void> _loadCurrentProfile() async {
+    final profile = await _authService.getCurrentProfile();
+    setState(() {
+      _currentProfile = profile;
+    });
+  }
 
   final List<Movie> movies = [
     Movie(
@@ -91,7 +114,7 @@ class PrincipalScreen extends StatelessWidget {
       backgroundColor: AppColors.vintageDarkBlue,
       appBar: PreferredSize(
         preferredSize: const Size(double.infinity, 50.0),
-        child: CustomAppBar(),
+        child: CustomAppBar(profileName: _currentProfile?.name ?? 'Perfil'),
       ),
       endDrawer: CustomDrawer(),
       body: SingleChildScrollView(

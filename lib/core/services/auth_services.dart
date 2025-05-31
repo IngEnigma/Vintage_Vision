@@ -99,64 +99,6 @@ class AuthService {
     }
   }
 
-  /*Future<List<Profile>?> getUserProfiles() async {
-    final prefs = await SharedPreferences.getInstance();
-    final token = prefs.getString('jwt');
-    
-    if (token == null) {
-      // ignore: avoid_print
-      print('No hay token almacenado');
-      return null;
-    }
-
-    final url = Uri.parse('$baseUrl/profiles');
-    // ignore: avoid_print
-    print('Obteniendo perfiles con token: $token');
-
-    try {
-      final response = await http.get(
-        url,
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer $token',
-        },
-      );
-
-      // ignore: avoid_print
-      print('Respuesta perfiles: ${response.statusCode} - ${response.body}');
-
-      if (response.statusCode == 200) {
-        final data = jsonDecode(response.body);
-        
-        if (data == null) {
-          // ignore: avoid_print
-          print('La API devolvió perfiles nulos');
-          return [];
-        }
-
-        if (data is List) {
-          return data.map<Profile>((p) => Profile(
-            id: p['id']?.toString() ?? '0',
-            name: p['name'] ?? 'Perfil sin nombre',
-            avatarUrl: p['avatar_url'] ?? 'assets/images/user_icon.png',
-          )).toList();
-        } else {
-          // ignore: avoid_print
-          print('Formato de perfiles inválido');
-          return [];
-        }
-      } else {
-        // ignore: avoid_print
-        print('Error al obtener perfiles: ${response.statusCode}');
-        return null;
-      }
-    } catch (e) {
-      // ignore: avoid_print
-      print('Excepción al obtener perfiles: $e');
-      return null;
-    }
-  }*/
-
   Future<List<Profile>?> getUserProfiles() async {
   final prefs = await SharedPreferences.getInstance();
   final token = prefs.getString('jwt');
@@ -251,4 +193,150 @@ class AuthService {
       return false;
     }
   }
+
+  static const String _currentProfileKey = 'current_profile';
+
+  Future<void> setCurrentProfile(Profile profile) async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setString(_currentProfileKey, jsonEncode(profile.toJson()));
+  }
+
+  Future<Profile?> getCurrentProfile() async {
+    final prefs = await SharedPreferences.getInstance();
+    final profileJson = prefs.getString(_currentProfileKey);
+    if (profileJson != null) {
+      return Profile.fromJson(jsonDecode(profileJson));
+    }
+    return null;
+  }
+
+  Future<void> clearCurrentProfile() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove(_currentProfileKey);
+  }
+
+  Future<void> logout() async {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.remove('jwt'); // Elimina el token
+  }
+
+  Future<Profile?> getProfileById(String profileId) async {
+  final prefs = await SharedPreferences.getInstance();
+  final token = prefs.getString('jwt');
+
+  if (token == null) {
+    print('Error: No hay token almacenado');
+    return null;
+  }
+
+  final url = Uri.parse('$baseUrl/profiles/$profileId');
+
+  try {
+    final response = await http.get(
+      url,
+      headers: {
+        'Authorization': 'Bearer $token',
+      },
+    );
+
+    print('Respuesta obtener perfil: ${response.statusCode} - ${response.body}');
+
+    if (response.statusCode == 200) {
+      final data = jsonDecode(response.body);
+      return Profile.fromJson(data['data']); // Asumiendo formato { "data": { ... } }
+    } else if (response.statusCode == 404) {
+      print('Perfil no encontrado');
+      return null;
+    } else {
+      print('Error al obtener perfil: ${response.body}');
+      return null;
+    }
+  } catch (e) {
+    print('Excepción al obtener perfil: $e');
+    return null;
+  }
+}
+
+  Future<bool> updateProfile(Profile profile) async {
+    final prefs = await SharedPreferences.getInstance();
+    final token = prefs.getString('jwt');
+    
+    if (token == null) {
+      // ignore: avoid_print
+      print('Error: No hay token almacenado');
+      return false;
+    }
+
+    final url = Uri.parse('$baseUrl/profiles/${profile.id}');
+    
+    try {
+      final response = await http.patch(
+        url,
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer $token',
+        },
+        body: jsonEncode({
+            'name': profile.name,
+            'avatar_url': profile.avatarUrl
+          }),
+      );
+
+      // ignore: avoid_print
+      print('Respuesta actualización perfil: ${response.statusCode} - ${response.body}');
+
+      if (response.statusCode == 200) {
+        return true;
+      } else if (response.statusCode == 404) {
+        // ignore: avoid_print
+        print('Perfil no encontrado');
+        return false;
+      } else {
+        // ignore: avoid_print
+        print('Error del servidor: ${response.body}');
+        return false;
+      }
+    } catch (e) {
+      // ignore: avoid_print
+      print('Excepción al actualizar perfil: $e');
+      return false;
+    }
+  }
+
+  Future<bool> deleteProfile(String profileId) async {
+  final prefs = await SharedPreferences.getInstance();
+  final token = prefs.getString('jwt');
+
+  if (token == null) {
+    print('Error: No hay token almacenado');
+    return false;
+  }
+
+  final url = Uri.parse('$baseUrl/profiles/$profileId');
+
+  try {
+    final response = await http.delete(
+      url,
+      headers: {
+        'Authorization': 'Bearer $token',
+      },
+    );
+
+    print('Respuesta eliminar perfil: ${response.statusCode} - ${response.body}');
+
+    if (response.statusCode == 200) {
+      return true;
+    } else if (response.statusCode == 404) {
+      print('Perfil no encontrado');
+      return false;
+    } else {
+      print('Error al eliminar perfil: ${response.body}');
+      return false;
+    }
+  } catch (e) {
+    print('Excepción al eliminar perfil: $e');
+    return false;
+  }
+}
+
 }

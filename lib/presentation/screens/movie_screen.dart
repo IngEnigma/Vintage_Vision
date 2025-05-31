@@ -16,10 +16,10 @@ class MovieDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.vintageDarkBlue,
-      appBar: PreferredSize(
+      /*appBar: PreferredSize(
         preferredSize: const Size(double.infinity, 50.0),
         child: CustomAppBar(),
-      ),
+      ),*/
       endDrawer: CustomDrawer(),
       body: CustomScrollView(
         slivers: [

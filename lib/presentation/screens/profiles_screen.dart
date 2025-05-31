@@ -26,6 +26,12 @@ class _ProfilesScreenState extends State<ProfilesScreen> {
     _loadProfiles();
   }
 
+  Future<void> _selectProfile(Profile profile) async {
+    await _authService.setCurrentProfile(profile);
+    // ignore: use_build_context_synchronously
+    Navigator.pushReplacementNamed(context, AppRoutes.principal);
+  }
+
   Future<void> _loadProfiles() async {
     setState(() => _isLoading = true);
     
@@ -60,14 +66,18 @@ class _ProfilesScreenState extends State<ProfilesScreen> {
                           runSpacing: 35,
                           children: [
                             // Mostrar perfiles existentes
-                            ..._profiles.map((profile) => ProfileCardWidget(
+                            /*..._profiles.map((profile) => ProfileCardWidget(
                               profileName: profile.name,
                               imageUrl: profile.avatarUrl,
-                              onTap: () {
-                                Navigator.pushNamed(context, AppRoutes.principal);
-                              },
+                              onTap: () => _selectProfile(profile),
                             )),
-                            
+                            */
+                            ..._profiles.map((profile) => ProfileCardWidget(
+                              profileName: profile.name,
+                              imageUrl: 'lib/assets/images/user_icon.png', // Ícono local hardcodeado
+                              onTap: () => _selectProfile(profile),
+                            )),
+
                             // Botón para agregar nuevo perfil
                             ProfileCardWidget(
                               imageUrl: 'lib/assets/images/add_icon.png',

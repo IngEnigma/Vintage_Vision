@@ -1,11 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:vintage_vision/core/constants/app_colors.dart';
+import 'package:vintage_vision/core/models/profile_model.dart';
+import 'package:vintage_vision/core/services/auth_services.dart';
 import 'package:vintage_vision/presentation/widgets/custom_input_widget.dart';
 import 'package:vintage_vision/routes/routes.dart';
 import 'package:vintage_vision/presentation/widgets/profile_card_widget.dart';
 
-class CustomDrawer extends StatelessWidget {
-  const CustomDrawer({super.key}); //Añadido el parámetro key
+class CustomDrawer extends StatefulWidget {
+  const CustomDrawer({super.key});
+
+  @override
+  State<CustomDrawer> createState() => _CustomDrawerState();
+}
+
+class _CustomDrawerState extends State<CustomDrawer> {
+  final AuthService _authService = AuthService();
+  Profile? _currentProfile;
+
+  @override
+  void initState() {
+    super.initState();
+    _loadCurrentProfile();
+  }
+
+  Future<void> _loadCurrentProfile() async {
+    final profile = await _authService.getCurrentProfile();
+    setState(() {
+      _currentProfile = profile;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,22 +44,21 @@ class CustomDrawer extends StatelessWidget {
           ),
         ),
         child: ListView(
-          padding: const EdgeInsets.symmetric(vertical: 20), // Espaciado vertical general
+          padding: const EdgeInsets.symmetric(vertical: 20),
           children: [
-            // Sección de perfil y búsqueda
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 18.0),
               child: Column(
                 children: [
-                  const SizedBox(height: 30), 
+                  const SizedBox(height: 30),
                   ProfileCardWidget(
-                    profileName: 'User',
+                    profileName: _currentProfile?.name ?? 'Usuario',
                     imageUrl: 'lib/assets/images/user_icon.png',
                     onTap: () {
-                      // Aquí puedes añadir la lógica para manejar el tap en el perfil
+                      // Acción al tocar el perfil
                     },
                   ),
-                  const SizedBox(height: 20), // Separación entre perfil y búsqueda
+                  const SizedBox(height: 20),
                   CustomInputWidget(
                     hintText: 'Buscar...',
                     controller: TextEditingController(),
@@ -44,14 +66,14 @@ class CustomDrawer extends StatelessWidget {
                 ],
               ),
             ),
-
-            const SizedBox(height: 45), 
+            const SizedBox(height: 45),
             ..._buildButtonsWithSpacing(context),
           ],
         ),
       ),
     );
   }
+
   List<Widget> _buildButtonsWithSpacing(BuildContext context) {
     final buttons = [
       _buildButton(
@@ -60,7 +82,11 @@ class CustomDrawer extends StatelessWidget {
       ),
       _buildButton(
         'Cambiar Perfil',
-        () => Navigator.pop(context, AppRoutes.profiles),
+        () => Navigator.pushNamedAndRemoveUntil(
+          context,
+          AppRoutes.profiles,
+          (route) => false,
+        ),
       ),
       _buildButton(
         'Añadir película',
@@ -68,7 +94,7 @@ class CustomDrawer extends StatelessWidget {
       ),
       _buildButton(
         'Cerrar Sesión',
-        () => Navigator.pop(context, AppRoutes.welcome),
+        () async => await _logout(context),
       ),
     ];
 
@@ -84,7 +110,7 @@ class CustomDrawer extends StatelessWidget {
           backgroundColor: AppColors.vintageDarkBlue,
           foregroundColor: AppColors.vintageCream,
           padding: const EdgeInsets.symmetric(vertical: 18.0),
-          minimumSize: const Size(80, 30), 
+          minimumSize: const Size(80, 30),
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(0),
           ),
@@ -99,5 +125,22 @@ class CustomDrawer extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future<void> _logout(BuildContext context) async {
+    try {
+      await _authService.clearCurrentProfile();
+      await _authService.logout();
+
+      Navigator.pushNamedAndRemoveUntil(
+        context,
+        AppRoutes.welcome,
+        (route) => false,
+      );
+    } catch (e) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text('Error al cerrar sesión: $e')),
+      );
+    }
   }
 }

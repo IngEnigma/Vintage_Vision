@@ -49,14 +49,16 @@ class ProfileCardWidget extends StatelessWidget {
                   child: SizedBox(
                     width: size * imageSizeFactor,
                     height: size * imageSizeFactor,
-                    child:
-                        imageUrl != null
-                            ? Image.asset(imageUrl!, fit: BoxFit.cover)
-                            : Icon(
-                              icon ?? Icons.person,
-                              size: size * imageSizeFactor,
-                              color: AppColors.vintageCream,
-                            ),
+                    child: imageUrl != null
+                      ? (imageUrl!.startsWith('http')
+                          ? Image.network(imageUrl!, fit: BoxFit.cover)
+                          : Image.asset(imageUrl!, fit: BoxFit.cover))
+                      : Icon(
+                          icon ?? Icons.person,
+                          size: size * imageSizeFactor,
+                          color: AppColors.vintageCream,
+                        ),
+
                   ),
                 ),
               ),

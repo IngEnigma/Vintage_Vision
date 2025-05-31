@@ -34,8 +34,8 @@ class _NewperfilScreenState extends State<NewperfilScreen> {
 
     // Selecciona un avatar basado en el modo niños
     final avatarUrl = modoNinos.value 
-        ? 'assets/images/user_icon.png'
-        : 'assets/images/user_icon.png';
+        ? 'https://i.pravatar.cc/150?img=3'
+        : 'https://i.pravatar.cc/150?img=3';
 
     final success = await _authService.createProfile(
       usernameController.text,
