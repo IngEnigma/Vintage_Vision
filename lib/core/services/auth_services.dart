@@ -1,4 +1,6 @@
 //Api
+// ignore_for_file: avoid_print, duplicate_ignore
+
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
@@ -10,7 +12,6 @@ class AuthService {
 
   Future<User?> login(String email, String password) async {
     final url = Uri.parse('$baseUrl/login');
-    // ignore: avoid_print
     print('Iniciando login para $email');
 
     try {
@@ -308,7 +309,7 @@ class AuthService {
   final token = prefs.getString('jwt');
 
   if (token == null) {
-    print('Error: No hay token almacenado');
+    //print('Error: No hay token almacenado');
     return false;
   }
 

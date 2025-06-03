@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:vintage_vision/core/services/auth_services.dart';
 import 'package:vintage_vision/presentation/widgets/button_dark_blue_widget.dart';
@@ -9,7 +11,7 @@ import 'package:vintage_vision/core/constants/app_size.dart';
 import 'package:vintage_vision/routes/routes.dart';
 
 class NewperfilScreen extends StatefulWidget {
-  NewperfilScreen({super.key});
+  const NewperfilScreen({super.key});
 
   @override
   State<NewperfilScreen> createState() => _NewperfilScreenState();
@@ -20,6 +22,7 @@ class _NewperfilScreenState extends State<NewperfilScreen> {
   final TextEditingController usernameController = TextEditingController();
 
   final AuthService _authService = AuthService();
+  // ignore: unused_field
   bool _isLoading = false;
 
   Future<void> _createProfile() async {

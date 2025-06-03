@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously, duplicate_ignore
+
 import 'package:flutter/material.dart';
 import 'package:vintage_vision/core/models/profile_model.dart';
 import 'package:vintage_vision/core/services/auth_services.dart';
@@ -19,6 +21,7 @@ class _EditperfilScreenState extends State<EditperfilScreen> {
   final TextEditingController _nameController = TextEditingController();
 
   late Profile _editableProfile;
+  // ignore: unused_field
   bool _isLoading = true;
 
   @override
@@ -58,9 +61,11 @@ class _EditperfilScreenState extends State<EditperfilScreen> {
       });
 
       ScaffoldMessenger.of(
+        // ignore: use_build_context_synchronously
         context,
       ).showSnackBar(const SnackBar(content: Text('Perfil actualizado')));
     } else {
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('Error al actualizar el perfil')),
       );
@@ -161,7 +166,7 @@ class _EditperfilScreenState extends State<EditperfilScreen> {
           onPressed: () {
             Navigator.pushNamedAndRemoveUntil(
               context,
-              AppRoutes.principal,
+              AppRoutes.confiperfil,
               (route) => false,
             );
           },

@@ -2,13 +2,13 @@ import 'package:vintage_vision/presentation/widgets/custom_text_widget.dart';
 import 'package:vintage_vision/core/constants/app_colors.dart';
 import 'package:vintage_vision/core/constants/app_size.dart';
 import 'package:flutter/material.dart';
-
 class ProfileCardWidget extends StatelessWidget {
   final String? profileName;
   final VoidCallback onTap;
   final String? imageUrl;
   final IconData? icon;
   final double imageSizeFactor;
+  final bool forceCreamText; // Nuevo parámetro
 
   const ProfileCardWidget({
     super.key,
@@ -17,6 +17,7 @@ class ProfileCardWidget extends StatelessWidget {
     this.imageUrl,
     this.icon,
     this.imageSizeFactor = 0.75,
+    this.forceCreamText = false, // Valor por defecto false
   });
 
   @override
@@ -58,7 +59,6 @@ class ProfileCardWidget extends StatelessWidget {
                           size: size * imageSizeFactor,
                           color: AppColors.vintageCream,
                         ),
-
                   ),
                 ),
               ),
@@ -68,9 +68,11 @@ class ProfileCardWidget extends StatelessWidget {
         if (profileName != null) ...[
           SizedBox(height: 5),
           CustomTextWidget(
-            text: profileName ?? "Nombre no disponible", // Texto por defecto
+            text: profileName ?? "Nombre no disponible",
             fontSize: 23,
-            color: AppColors.vintageDarkBlue,
+            color: forceCreamText 
+                ? AppColors.vintageCream  // Solo cuando forceCreamText es true
+                : AppColors.vintageDarkBlue, // Color normal para otros usos
           ),
         ],
       ],

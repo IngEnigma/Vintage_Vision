@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:vintage_vision/core/constants/app_colors.dart';
 import 'package:vintage_vision/core/models/movie_model.dart';
 import 'package:vintage_vision/presentation/widgets/button_red_widget.dart';
-import 'package:vintage_vision/presentation/widgets/custom_app_bar.dart';
 import 'package:vintage_vision/presentation/widgets/custom_drawer.dart';
 
 import 'package:vintage_vision/presentation/screens/movieplayer_screen.dart';
@@ -16,11 +15,20 @@ class MovieDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.vintageDarkBlue,
-      /*appBar: PreferredSize(
-        preferredSize: const Size(double.infinity, 50.0),
-        child: CustomAppBar(),
-      ),*/
-      endDrawer: CustomDrawer(),
+      appBar: AppBar(
+        backgroundColor: AppColors.vintageDarkBlue,
+        title: const Text(
+          'Pelicula',
+          style: TextStyle(
+            fontFamily: 'Limelight',
+            color: AppColors.vintageCream,
+          ),
+        ),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back, color: AppColors.vintageCream),
+          onPressed: () =>  Navigator.pop(context)
+        ),
+      ),
       body: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(
@@ -56,7 +64,7 @@ class MovieDetailsScreen extends StatelessWidget {
                   _buildInfoRow('Género', movie.genre),
                   // Descripción de la película
                   Text(
-                    movie.thumbnail,
+                    movie.description,
                     style: const TextStyle(
                       fontFamily: 'Limelight',
                       color: Color.fromARGB(255, 255, 255, 255),

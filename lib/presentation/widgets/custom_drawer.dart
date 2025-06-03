@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:vintage_vision/core/constants/app_colors.dart';
 import 'package:vintage_vision/core/models/profile_model.dart';

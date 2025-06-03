@@ -1,5 +1,4 @@
 // ignore_for_file: use_build_context_synchronously, unused_import
-
 import 'dart:io';
 import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
@@ -13,14 +12,14 @@ import 'package:vintage_vision/presentation/widgets/custom_input_widget.dart';
 import 'package:vintage_vision/presentation/widgets/custom_textarea_widget.dart';
 import 'package:vintage_vision/routes/routes.dart';
 
-class AddMovieScreen extends StatefulWidget {
-  const AddMovieScreen({super.key});
+class EditMovieScreen extends StatefulWidget {
+  const EditMovieScreen({super.key});
 
   @override
-  State<AddMovieScreen> createState() => _AddMovieScreenState();
+  State<EditMovieScreen> createState() => _EditMovieScreenState();
 }
 
-class _AddMovieScreenState extends State<AddMovieScreen> {
+class _EditMovieScreenState extends State<EditMovieScreen> {
   final TextEditingController _titleController = TextEditingController();
   final TextEditingController _yearController = TextEditingController();
   final TextEditingController _genreController = TextEditingController();
@@ -141,7 +140,7 @@ class _AddMovieScreenState extends State<AddMovieScreen> {
           },
         ),
         title: const Text(
-          'Añadir Película',
+          'Editar Película',
           style: TextStyle(
             color: AppColors.vintageCream,
             fontSize: 32,
@@ -213,6 +212,11 @@ class _AddMovieScreenState extends State<AddMovieScreen> {
                 ? const CircularProgressIndicator(color: AppColors.vintageCream)
                 : ButtonRedWidget(
                     text: 'Crear',
+                    onPressed: submitMovie,
+                  ),
+            const SizedBox(height: 20),
+            ButtonRedWidget(
+                    text: 'eliminar',
                     onPressed: submitMovie,
                   ),
           ],
